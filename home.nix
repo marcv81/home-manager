@@ -10,4 +10,13 @@
 
     stateVersion = "26.05";
   };
+
+  programs = {
+    bash = {
+      enable = true;
+      bashrcExtra = ''
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      '';
+    };
+  };
 }

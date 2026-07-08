@@ -23,3 +23,25 @@ If Home Manager is not installed, we can run it in a Nix shell.
 Then we can install the flake, which subsequently provides Home Manager.
 
     home-manager switch --flake .#user
+
+# Environment variables
+
+This is how I observe Home Manager handles environment variables. I don't actually follow the logic.
+
+## `~/.bashrc`
+
+- Entry point for non-login shells
+- Sources `hm-session-vars.sh` (through a `bashrcExtra` hack, I don't understand why this is not the default)
+
+## `~/.bash_profile`
+
+- Entry point for login shells
+- Sources `~/.profile`
+  - Sources `hm-session-vars.sh`
+  - Contains environment variables controlled by `programs.bash.sessionVariables` (I don't understand why, it will expose the variables to other processes than bash)
+- Then sources `~/.bashrc`
+
+## `hm-session-vars.sh`
+
+- Contains environment variables controlled by `home.sessionVariables`
+- Contains implicitly defined environment variables, for instance from `programs`.
