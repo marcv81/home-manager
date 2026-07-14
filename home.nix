@@ -1,8 +1,14 @@
-{ pkgs, config, nix-gl-host, ... } :
+{
+  pkgs,
+  config,
+  nix-gl-host,
+  ...
+}:
 {
   home = {
     packages = with pkgs; [
       home-manager
+      nixfmt
       tig
     ];
 
@@ -47,15 +53,15 @@
       package = pkgs.writeShellScriptBin "ghostty" ''
         exec ${nix-gl-host.packages.${pkgs.system}.default}/bin/nixglhost ${pkgs.ghostty}/bin/ghostty "$@"
       '';
-        settings = {
-          theme = "GitHub Dark High Contrast";
+      settings = {
+        theme = "GitHub Dark High Contrast";
 
-          custom-shader = "${./resources/cursor_blaze.glsl}";
-          cursor-color = "#ffffff";
-          cursor-text = "#000000";
-          cursor-style = "block";
-          shell-integration-features = "no-cursor";
-        };
+        custom-shader = "${./resources/cursor_blaze.glsl}";
+        cursor-color = "#ffffff";
+        cursor-text = "#000000";
+        cursor-style = "block";
+        shell-integration-features = "no-cursor";
+      };
     };
   };
 
