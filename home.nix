@@ -35,6 +35,13 @@
       '';
     };
 
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
+
     ghostty = {
       enable = true;
       package = pkgs.writeShellScriptBin "ghostty" ''
