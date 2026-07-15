@@ -41,6 +41,11 @@
       '';
     };
 
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     ghostty = {
       enable = true;
       package = pkgs.writeShellScriptBin "ghostty" ''
