@@ -20,6 +20,14 @@
     sessionVariables = {
       LESS = "-SFXR --mouse";
     };
+
+    # Mirror system theme.
+    pointerCursor = {
+      package = pkgs.yaru-theme;
+      name = "Yaru";
+      size = 64;
+      gtk.enable = true;
+    };
   };
 
   programs = {
