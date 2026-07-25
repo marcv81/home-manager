@@ -57,6 +57,10 @@
       nix-direnv.enable = true;
     };
 
+    starship = {
+      enable = true;
+    };
+
     neovim = {
       enable = true;
       defaultEditor = true;
