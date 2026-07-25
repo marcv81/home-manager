@@ -69,23 +69,27 @@
       initLua = builtins.readFile ./resources/init.lua;
     };
 
-    ghostty = {
-      enable = true;
-      package = pkgs.writeShellScriptBin "ghostty" ''
-        exec ${nix-gl-host.packages.${pkgs.system}.default}/bin/nixglhost ${pkgs.ghostty}/bin/ghostty "$@"
-      '';
-      settings = {
-        theme = "GitHub Dark High Contrast";
+    ghostty =
+      let
+        nixglhostPath = "${nix-gl-host.packages.${pkgs.stdenv.hostPlatform.system}.default}";
+      in
+      {
+        enable = true;
+        package = pkgs.writeShellScriptBin "ghostty" ''
+          exec ${nixglhostPath}/bin/nixglhost ${pkgs.ghostty}/bin/ghostty "$@"
+        '';
+        settings = {
+          theme = "GitHub Dark High Contrast";
 
-        custom-shader = "${./resources/cursor_blaze.glsl}";
-        cursor-color = "#ffffff";
-        cursor-text = "#000000";
-        cursor-style = "block";
-        shell-integration-features = "no-cursor";
+          custom-shader = "${./resources/cursor_blaze.glsl}";
+          cursor-color = "#ffffff";
+          cursor-text = "#000000";
+          cursor-style = "block";
+          shell-integration-features = "no-cursor";
 
-        async-backend = "epoll";
+          async-backend = "epoll";
+        };
       };
-    };
   };
 
   xdg = {
