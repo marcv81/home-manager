@@ -79,6 +79,8 @@
         cursor-text = "#000000";
         cursor-style = "block";
         shell-integration-features = "no-cursor";
+
+        async-backend = "epoll";
       };
     };
   };
