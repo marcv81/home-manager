@@ -57,7 +57,11 @@
       nix-direnv.enable = true;
     };
 
-   ghostty =
+    starship = {
+      enable = true;
+    };
+
+    ghostty =
       let
         nixglhostPath = "${nix-gl-host.packages.${pkgs.stdenv.hostPlatform.system}.default}";
       in
