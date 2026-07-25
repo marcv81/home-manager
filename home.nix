@@ -59,6 +59,11 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        neo-tree-nvim
+        gitsigns-nvim
+      ];
+      initLua = builtins.readFile ./resources/init.lua;
     };
 
     ghostty = {
