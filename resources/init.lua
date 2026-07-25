@@ -2,6 +2,9 @@ vim.opt.number = true
 vim.opt.signcolumn = 'yes'
 vim.opt.termguicolors = false
 
+vim.g.mapleader = " "
+vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
+
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>')
 
 require('gitsigns').setup({
