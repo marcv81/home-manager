@@ -44,6 +44,9 @@
 
     bash = {
       enable = true;
+      shellAliases = {
+        "ls" = "ls --color=auto";
+      };
       bashrcExtra = ''
         . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       '';
