@@ -1,6 +1,8 @@
 vim.opt.number = true
 vim.opt.signcolumn = 'yes'
-vim.opt.termguicolors = false
+
+require('github-theme').setup({})
+vim.cmd.colorscheme("github_dark_high_contrast")
 
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })

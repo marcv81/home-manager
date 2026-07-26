@@ -69,6 +69,7 @@
       plugins = with pkgs.vimPlugins; [
         neo-tree-nvim
         gitsigns-nvim
+        github-nvim-theme
       ];
       initLua = builtins.readFile ./resources/init.lua;
     };
