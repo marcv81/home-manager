@@ -91,6 +91,8 @@
           theme = "GitHub Dark High Contrast";
 
           custom-shader = "${./resources/cursor_blaze.glsl}";
+          custom-shader-animation = "always";
+
           cursor-color = "#ffffff";
           cursor-text = "#000000";
           cursor-style = "block";
