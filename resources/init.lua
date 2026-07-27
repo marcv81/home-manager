@@ -14,8 +14,25 @@ require('gitsigns').setup({
     local gs = package.loaded.gitsigns
     vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { buffer = bufnr })
     vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<leader>gb', gs.blame, { buffer = bufnr })
     vim.keymap.set('n', '<leader>gd', gs.diffthis, { buffer = bufnr })
     vim.keymap.set('n', '<leader>gD', function() gs.diffthis('HEAD') end, { buffer = bufnr })
-end
+  end
 })
+
+-- Blame toggle
+vim.keymap.set('n', '<leader>gb', function()
+  local bufname = vim.api.nvim_buf_get_name(0)
+  if vim.startswith(bufname, 'gitsigns-blame:') then
+    vim.cmd('q')
+    return
+  end
+  local filename = vim.fn.fnamemodify(bufname, ':t')
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local win_name = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+    if vim.startswith(win_name, 'gitsigns-blame:') and win_name:find(filename, 1, true) then
+      vim.api.nvim_win_close(win, true)
+      return
+    end
+  end
+  require('gitsigns').blame()
+end)
