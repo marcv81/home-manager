@@ -9,6 +9,7 @@
     packages = with pkgs; [
       home-manager
       nixfmt
+      ripgrep
     ];
 
     username = "user";
@@ -30,6 +31,10 @@
   };
 
   programs = {
+    fzf = {
+      enable = true;
+    };
+
     git = {
       enable = true;
     };
