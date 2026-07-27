@@ -10,6 +10,7 @@
       home-manager
       nixfmt
       tig
+      ripgrep
     ];
 
     username = "user";
@@ -31,6 +32,10 @@
   };
 
   programs = {
+    fzf = {
+      enable = true;
+    };
+
     git = {
       enable = true;
     };

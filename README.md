@@ -45,3 +45,8 @@ This is how I observe Home Manager handles environment variables. I don't actual
 
 - Contains environment variables controlled by `home.sessionVariables`
 - Contains implicitly defined environment variables, for instance from `programs`.
+
+# fzf terminal integration
+
+- `Ctrl-R`: fuzzy find history
+- `Ctrl-T`: fuzzy find file and directory names
