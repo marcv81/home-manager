@@ -14,5 +14,8 @@ require('gitsigns').setup({
     local gs = package.loaded.gitsigns
     vim.keymap.set('n', '<leader>hs', gs.stage_hunk, { buffer = bufnr })
     vim.keymap.set('n', '<leader>hr', gs.reset_hunk, { buffer = bufnr })
-  end
+    vim.keymap.set('n', '<leader>gb', gs.blame, { buffer = bufnr })
+    vim.keymap.set('n', '<leader>gd', gs.diffthis, { buffer = bufnr })
+    vim.keymap.set('n', '<leader>gD', function() gs.diffthis('HEAD') end, { buffer = bufnr })
+end
 })
