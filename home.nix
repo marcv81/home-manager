@@ -75,7 +75,11 @@
         gitsigns-nvim
         github-nvim-theme
       ];
-      initLua = builtins.readFile ./resources/init.lua;
+      initLua = builtins.concatStringsSep "\n" (map builtins.readFile [
+        ./resources/init.lua
+        ./resources/gitsigns.lua
+        ./resources/mouse.lua
+      ]);
     };
 
     ghostty =
