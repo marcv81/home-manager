@@ -40,6 +40,12 @@
       enable = true;
     };
 
+    helix = {
+      enable = true;
+      defaultEditor = true;
+      settings.theme = "github_dark_high_contrast";
+    };
+
     difftastic = {
       enable = true;
       git = {
