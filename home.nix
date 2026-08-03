@@ -43,7 +43,8 @@
     helix = {
       enable = true;
       defaultEditor = true;
-      settings.theme = "github_dark_high_contrast";
+      settings.theme = "github_dark_custom";
+      themes."github_dark_custom" = ./resources/helix_theme.toml;
     };
 
     difftastic = {
