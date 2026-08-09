@@ -31,6 +31,9 @@
     };
   };
 
+
+  home.file.".tigrc".source = ./resources/tigrc;
+
   programs = {
     fzf = {
       enable = true;
