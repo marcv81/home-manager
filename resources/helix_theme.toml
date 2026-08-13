@@ -1,3 +1,0 @@
-inherits = "github_dark_high_contrast"
-
-"ui.cursor" = { fg = "#000000", bg = "#ffffff" }

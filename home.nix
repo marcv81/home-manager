@@ -48,8 +48,12 @@
       enable = true;
       package = helix-fork.packages.${pkgs.stdenv.hostPlatform.system}.helix;
       defaultEditor = true;
-      settings.theme = "github_dark_custom";
-      themes."github_dark_custom" = ./resources/helix_theme.toml;
+      settings.theme = "github_dark_high_contrast";
+      settings.editor.cursor-shape = {
+        normal = "terminal-block";
+        insert = "terminal-block";
+        select = "terminal-block";
+      };
     };
 
     difftastic = {
