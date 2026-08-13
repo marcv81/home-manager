@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "helix-fork": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1786634099,
+        "narHash": "sha256-HjhVRiluJp4noaw0brZMhp8OlVyGmkD9Yis0knHGxWc=",
+        "owner": "marcv81",
+        "repo": "helix",
+        "rev": "53fbd9a4f909909aae851b8f10e5120e01b1418e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marcv81",
+        "ref": "hardware-block-cursor-v2",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -57,9 +79,31 @@
     },
     "root": {
       "inputs": {
+        "helix-fork": "helix-fork",
         "home-manager": "home-manager",
         "nix-gl-host": "nix-gl-host",
         "nixpkgs": "nixpkgs"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "helix-fork",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775358767,
+        "narHash": "sha256-f2eC+WIfhjevCPQILuV08i/kmKZzYZpUvkom/33VxCA=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     }
   },

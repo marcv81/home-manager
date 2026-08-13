@@ -2,6 +2,7 @@
   pkgs,
   config,
   nix-gl-host,
+  helix-fork,
   ...
 }:
 {
@@ -45,6 +46,7 @@
 
     helix = {
       enable = true;
+      package = helix-fork.packages.${pkgs.stdenv.hostPlatform.system}.helix;
       defaultEditor = true;
       settings.theme = "github_dark_custom";
       themes."github_dark_custom" = ./resources/helix_theme.toml;

@@ -11,6 +11,11 @@
       url = "github:numtide/nix-gl-host";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helix-fork = {
+      url = "github:marcv81/helix/hardware-block-cursor-v2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +23,7 @@
       nixpkgs,
       home-manager,
       nix-gl-host,
+      helix-fork,
       ...
     }:
     let
@@ -30,7 +36,7 @@
       homeConfigurations = {
         user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit nix-gl-host; };
+          extraSpecialArgs = { inherit nix-gl-host helix-fork; };
           modules = [ ./home.nix ];
         };
       };
