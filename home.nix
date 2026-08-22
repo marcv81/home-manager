@@ -21,6 +21,9 @@
 
     sessionVariables = {
       LESS = "-SFXR --mouse";
+
+      OPENCODE_ENABLE_TELEMETRY = "1";
+      OPENCODE_OTLP_ENDPOINT = "http://localhost:4317";
     };
 
     # Mirror system theme.
@@ -80,6 +83,13 @@
 
     starship = {
       enable = true;
+    };
+
+    opencode = {
+      enable = true;
+      settings = {
+        plugin = [ "@devtheops/opencode-plugin-otel" ];
+      };
     };
 
     ghostty =
