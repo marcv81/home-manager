@@ -7,8 +7,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-gl-host = {
-      url = "github:numtide/nix-gl-host";
+    nixgl = {
+      url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +22,7 @@
     {
       nixpkgs,
       home-manager,
-      nix-gl-host,
+      nixgl,
       helix-fork,
       ...
     }:
@@ -36,7 +36,7 @@
       homeConfigurations = {
         user = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit nix-gl-host helix-fork; };
+          extraSpecialArgs = { inherit nixgl helix-fork; };
           modules = [ ./home.nix ];
         };
       };

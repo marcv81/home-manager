@@ -1,11 +1,17 @@
 {
   pkgs,
   config,
-  nix-gl-host,
+  nixgl,
   helix-fork,
   ...
 }:
 {
+  targets.genericLinux.nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "mesa";
+    installScripts = [ "mesa" ];
+  };
+
   home = {
     packages = with pkgs; [
       home-manager
@@ -25,16 +31,7 @@
       OPENCODE_ENABLE_TELEMETRY = "1";
       OPENCODE_OTLP_ENDPOINT = "http://localhost:4317";
     };
-
-    # Mirror system theme.
-    pointerCursor = {
-      package = pkgs.yaru-theme;
-      name = "Yaru";
-      size = 64;
-      gtk.enable = true;
-    };
   };
-
 
   home.file.".tigrc".source = ./resources/tigrc;
 
@@ -92,34 +89,28 @@
       };
     };
 
-    ghostty =
-      let
-        nixglhostPath = "${nix-gl-host.packages.${pkgs.stdenv.hostPlatform.system}.default}";
-      in
-      {
-        enable = true;
-        package = pkgs.writeShellScriptBin "ghostty" ''
-          exec ${nixglhostPath}/bin/nixglhost ${pkgs.ghostty}/bin/ghostty "$@"
-        '';
-        settings = {
-          theme = "GitHub Dark High Contrast";
+    ghostty = {
+      enable = true;
+      package = config.lib.nixGL.wrap pkgs.ghostty;
+      settings = {
+        theme = "GitHub Dark High Contrast";
 
-          custom-shader = "${./resources/cursor_blaze.glsl}";
-          custom-shader-animation = "always";
+        custom-shader = "${./resources/cursor_blaze.glsl}";
+        custom-shader-animation = "always";
 
-          cursor-text = "cell-background";
-          cursor-color = "cell-foreground";
-          cursor-style = "block";
-          shell-integration-features = "no-cursor";
+        cursor-text = "cell-background";
+        cursor-color = "cell-foreground";
+        cursor-style = "block";
+        shell-integration-features = "no-cursor";
 
-          async-backend = "epoll";
-        };
+        async-backend = "epoll";
       };
+    };
   };
 
   xdg = {
     enable = true;
-    desktopEntries.ghostty = {
+    desktopEntries."com.mitchellh.ghostty" = {
       type = "Application";
       name = "Ghostty";
       icon = "${pkgs.ghostty}/share/icons/hicolor/256x256/apps/com.mitchellh.ghostty.png";
