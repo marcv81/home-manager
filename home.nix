@@ -110,11 +110,7 @@
 
   xdg = {
     enable = true;
-    desktopEntries."com.mitchellh.ghostty" = {
-      type = "Application";
-      name = "Ghostty";
-      icon = "${pkgs.ghostty}/share/icons/hicolor/256x256/apps/com.mitchellh.ghostty.png";
-      exec = "${config.programs.ghostty.package}/bin/ghostty";
-    };
+    dataFile."applications/com.mitchellh.ghostty.desktop".source =
+      "${pkgs.ghostty}/share/applications/com.mitchellh.ghostty.desktop";
   };
 }
