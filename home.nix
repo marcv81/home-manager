@@ -18,6 +18,7 @@
       nixfmt
       tig
       ripgrep
+      ncdu
     ];
 
     username = "user";
