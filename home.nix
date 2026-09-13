@@ -87,6 +87,20 @@
       enable = true;
       settings = {
         plugin = [ "@devtheops/opencode-plugin-otel" ];
+        provider = {
+          "llama.cpp" = {
+            npm = "@ai-sdk/openai-compatible";
+            name = "llama.cpp";
+            options = {
+              baseURL = "http://localhost:8080/v1";
+            };
+            models = {
+              "qwen3.8-27b" = {
+                name = "qwen3.8-27b";
+              };
+            };
+          };
+        };
       };
     };
 
