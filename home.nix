@@ -19,6 +19,7 @@
       tig
       ripgrep
       ncdu
+      nono
     ];
 
     username = "user";
@@ -68,6 +69,7 @@
       enable = true;
       shellAliases = {
         "ls" = "ls --color=auto";
+        "oc" = "nono run --profile nolabs-ai/opencode --allow-cwd -- opencode";
       };
       bashrcExtra = ''
         . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
