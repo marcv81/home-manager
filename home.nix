@@ -51,6 +51,7 @@
       package = helix-fork.packages.${pkgs.stdenv.hostPlatform.system}.helix;
       defaultEditor = true;
       settings.theme = "github_dark_high_contrast";
+      settings.editor.auto-pairs = false;
       settings.editor.cursor-shape = {
         normal = "terminal-block";
         insert = "terminal-block";
