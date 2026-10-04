@@ -100,6 +100,12 @@
               "qwen3.8-27b" = {
                 name = "qwen3.8-27b";
               };
+              "qwen3.8-27b-swift" = {
+                name = "qwen3.8-27b-swift";
+              };
+              "qwen3.8-27b-abliterated" = {
+                name = "qwen3.8-27b-abliterated";
+              };
             };
           };
         };
