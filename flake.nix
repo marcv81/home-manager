@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/abec4804aa876d4d80467d71d4727bf81c19e1c9";
+    nixpkgs.url = "github:NixOS/nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -13,8 +13,7 @@
     };
 
     helix-fork = {
-      url = "github:marcv81/helix/hardware-block-cursor-v2";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:marcv81/helix/marcv81";
     };
   };
 
